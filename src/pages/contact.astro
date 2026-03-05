@@ -2,19 +2,27 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<BaseLayout title="Contact" sideBarActiveItemID="contact" contentAlign="left">
-  <div class="w-full text-left">
-    <div class="mb-5">
-      <div class="text-3xl w-full font-bold">Contact</div>
-    </div>
+<BaseLayout title="Contact" sideBarActiveItemID="contact">
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Contact</div>
+  </div>
 
-    <div class="mb-10">
-      <p class="text-lg mb-6">Get in touch — I’m happy to connect.</p>
-      <p class="text-lg">
-        <span class="font-semibold">Email</span>
-        —
-        <a href="mailto:rl3592@columbia.edu" class="link link-hover">rl3592@columbia.edu</a>
-      </p>
-    </div>
+  <div class="mb-10">
+    <p class="text-lg mb-6">Get in touch — I’m happy to connect.</p>
+    <p class="text-lg">
+      <span class="font-semibold">Email</span>
+      —
+      <a href="mailto:rl3592@columbia.edu" class="link link-hover">rl3592@columbia.edu</a>
+    </p>
+    <p class="text-lg mt-6">
+      Open to collaboration, research ideas, or just saying hi. I’ll do my best to get back to you.
+    </p>
+  </div>
+
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold mb-5">Elsewhere</div>
+  </div>
+  <div class="mb-10 text-lg opacity-75">
+    <p>GitHub, LinkedIn, and Steam — linked in the sidebar.</p>
   </div>
 </BaseLayout>
