@@ -1,7 +1,9 @@
 ---
-const { title, img, desc, url, badge, tags, target = "_blank" } = Astro.props;
+const { title, img, desc, url, badge, tags, target = "_blank", icon } = Astro.props;
 import { Image } from "astro:assets";
+import { explorationIcons } from "./icons/exploration";
 const tag_url = url.split("/").slice(0, -1).join("/") + "/tag";
+const iconSvg = icon && explorationIcons[icon] ? explorationIcons[icon] : null;
 ---
 
 <div
@@ -10,7 +12,14 @@ const tag_url = url.split("/").slice(0, -1).join("/") + "/tag";
   <a href={url} target={target}>
     <div class="hero-content flex-col md:flex-row">
       {
-        img && (
+        iconSvg && (
+          <div class="flex items-center justify-center w-16 h-16 md:w-20 md:h-20 shrink-0 rounded-lg border border-base-300 text-base-content [&_svg]:w-7 [&_svg]:h-7 [&_svg]:opacity-80" aria-hidden="true">
+            <span set:html={`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">${iconSvg}</svg>`} />
+          </div>
+        )
+      }
+      {
+        !iconSvg && img && (
           <Image
             src={img}
             width={750}
