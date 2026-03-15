@@ -1,0 +1,270 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Wave Height Prediction" sideBarActiveItemID="projects">
+  <div class="mb-6">
+    <a href="/projects" class="btn btn-ghost btn-sm gap-1">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+      </svg>
+      Back to Projects
+    </a>
+  </div>
+
+  <div class="mb-8">
+    <h1 class="text-3xl font-bold mb-2">Wave Height Prediction</h1>
+    <div class="flex gap-2 mb-4">
+      <span class="badge badge-secondary">Time Series</span>
+      <span class="badge badge-secondary">Prophet</span>
+      <span class="badge badge-secondary">Flask</span>
+    </div>
+    <p class="text-lg mb-4">
+      A surf vacation planner that predicts ocean wave heights using Facebook Prophet time-series forecasting.
+      Enter your desired wave height, vacation duration, and date range to find the best surfing windows
+      across NOAA buoy stations along the US coast.
+    </p>
+    <a
+      href="https://github.com/michaelliruoxi/CS506_Final_Project"
+      target="_blank"
+      class="btn btn-outline btn-sm gap-2"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+      </svg>
+      View on GitHub
+    </a>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- Wave Prediction App -->
+  <div id="wave-app">
+    <div class="wave-container">
+      <h2 class="wave-title">Hunt Down YOUR Wave</h2>
+      <div class="wave-layout">
+        <!-- Left Section: Inputs and Calendar -->
+        <div class="wave-panel">
+          <h3 class="wave-panel-title">Vacation Planner</h3>
+          <div class="wave-form-group">
+            <label for="waveHeight">Wave height (m):</label>
+            <input type="number" id="waveHeight" step="0.01" placeholder="Enter desired wave height" class="input input-bordered w-full" />
+          </div>
+          <div class="wave-form-group">
+            <label for="numDays">Get away for (days):</label>
+            <input type="number" id="numDays" min="1" placeholder="Enter number of days" class="input input-bordered w-full" />
+          </div>
+          <div class="wave-form-group">
+            <h4 class="font-semibold mb-2">Select your days off</h4>
+            <div id="calendar"></div>
+          </div>
+          <div class="flex gap-2 mt-4 justify-center">
+            <button type="button" class="btn btn-outline" id="resetButton">Reset</button>
+            <button type="button" class="btn btn-primary" id="findButton">Find Waves</button>
+          </div>
+        </div>
+
+        <!-- Middle Section: Suggestions -->
+        <div class="wave-panel">
+          <h3 class="wave-panel-title">Best Surfing Dates</h3>
+          <div class="wave-result-box" id="suggestionBox">Let's find your wave</div>
+          <h3 class="wave-panel-title mt-4">Best Surfing Outfit</h3>
+          <div class="wave-result-box" id="wardrobeBox">Suggestions will appear here...</div>
+        </div>
+
+        <!-- Right Section: Picture -->
+        <div class="wave-panel">
+          <h3 class="wave-panel-title">Picture</h3>
+          <div id="imageBox">
+            <img src="/remagic_cover.jpeg" alt="Surfing Cover" class="rounded-lg w-full" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- Project Details -->
+  <div class="mt-6">
+    <h2 class="text-2xl font-bold mb-4">About This Project</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div>
+        <h3 class="text-lg font-semibold mb-2">Tech Stack</h3>
+        <ul class="list-disc list-inside space-y-1">
+          <li><strong>Backend:</strong> Python, Flask</li>
+          <li><strong>Modeling:</strong> Facebook Prophet</li>
+          <li><strong>Frontend:</strong> HTML, CSS, JavaScript</li>
+          <li><strong>Data:</strong> NOAA National Data Buoy Center (2019-2023)</li>
+          <li><strong>Visualization:</strong> Matplotlib</li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-lg font-semibold mb-2">Key Features</h3>
+        <ul class="list-disc list-inside space-y-1">
+          <li>Time-series wave height forecasting</li>
+          <li>Water temperature prediction</li>
+          <li>Optimal surf window recommendations</li>
+          <li>Wetsuit/outfit suggestions based on conditions</li>
+          <li>Interactive date range selection</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="text-lg font-semibold mt-6 mb-2">How It Works</h3>
+    <div class="steps steps-vertical lg:steps-horizontal w-full mb-6">
+      <div class="step step-primary">Input preferences</div>
+      <div class="step step-primary">Prophet forecasts waves</div>
+      <div class="step step-primary">Find best windows</div>
+      <div class="step step-primary">Get recommendations</div>
+    </div>
+
+    <div class="alert alert-info mb-6">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+      <div>
+        <span class="font-semibold">Note:</span> The interactive demo above requires the Flask backend to generate predictions.
+        To try the full application, clone the
+        <a href="https://github.com/michaelliruoxi/CS506_Final_Project" target="_blank" class="link">GitHub repository</a>
+        and follow the setup instructions.
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+<style>
+  .wave-container {
+    background: #f9f9f9;
+    border-radius: 12px;
+    padding: 24px;
+    border: 1px solid #e5e7eb;
+  }
+
+  .wave-title {
+    text-align: center;
+    color: #0F52BA;
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+
+  .wave-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  @media (min-width: 768px) {
+    .wave-layout {
+      grid-template-columns: 1fr 1.5fr 1fr;
+    }
+  }
+
+  .wave-panel {
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: white;
+    text-align: center;
+  }
+
+  .wave-panel-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 12px;
+  }
+
+  .wave-form-group {
+    margin-bottom: 16px;
+    text-align: left;
+  }
+
+  .wave-form-group label {
+    font-weight: 600;
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .wave-result-box {
+    border: 1px solid #ccc;
+    padding: 16px;
+    border-radius: 8px;
+    background: #f9f9f9;
+    min-height: 80px;
+    text-align: left;
+    line-height: 1.6;
+  }
+
+  #imageBox img {
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  :global(.flatpickr-calendar) {
+    margin: 0 auto;
+  }
+</style>
+
+<script>
+  document.addEventListener('astro:page-load', () => {
+    const calendarEl = document.getElementById('calendar');
+    if (!calendarEl || typeof flatpickr === 'undefined') return;
+
+    const cal = flatpickr("#calendar", {
+      inline: true,
+      mode: "range",
+      dateFormat: "Y-m-d",
+    });
+
+    const findButton = document.getElementById('findButton');
+    const resetButton = document.getElementById('resetButton');
+
+    if (findButton) {
+      findButton.addEventListener('click', () => {
+        const waveHeight = (document.getElementById('waveHeight') as HTMLInputElement).value;
+        const numDays = (document.getElementById('numDays') as HTMLInputElement).value;
+        const selectedDates = cal.selectedDates;
+
+        if (!waveHeight || !numDays || selectedDates.length < 2) {
+          alert('Please fill out all fields and select a date range!');
+          return;
+        }
+
+        const suggestionBox = document.getElementById('suggestionBox');
+        if (suggestionBox) {
+          suggestionBox.innerHTML = `
+            <p class="font-semibold">Demo Mode</p>
+            <p>This demo requires the Flask backend to generate predictions. To try the full application:</p>
+            <ol style="margin-left: 20px; margin-top: 8px; list-style: decimal;">
+              <li>Clone the <a href="https://github.com/michaelliruoxi/CS506_Final_Project" target="_blank" style="color: #0F52BA; text-decoration: underline;">GitHub repository</a></li>
+              <li>Run <code>make install</code> to install dependencies</li>
+              <li>Run <code>make run_website</code> to start the server</li>
+            </ol>
+          `;
+        }
+
+        const wardrobeBox = document.getElementById('wardrobeBox');
+        if (wardrobeBox) {
+          wardrobeBox.innerHTML = '<p>Outfit suggestions require the backend server.</p>';
+        }
+      });
+    }
+
+    if (resetButton) {
+      resetButton.addEventListener('click', () => {
+        (document.getElementById('waveHeight') as HTMLInputElement).value = '';
+        (document.getElementById('numDays') as HTMLInputElement).value = '';
+        cal.clear();
+        const suggestionBox = document.getElementById('suggestionBox');
+        if (suggestionBox) suggestionBox.innerHTML = "Let's find your wave";
+        const wardrobeBox = document.getElementById('wardrobeBox');
+        if (wardrobeBox) wardrobeBox.innerHTML = "Suggestions will appear here...";
+        const imageBox = document.getElementById('imageBox');
+        if (imageBox) imageBox.innerHTML = '<img src="/remagic_cover.jpeg" alt="Surfing Cover" class="rounded-lg w-full" />';
+      });
+    }
+  });
+</script>
