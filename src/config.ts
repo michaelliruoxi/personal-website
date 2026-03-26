@@ -3,5 +3,5 @@
 
 export const SITE_TITLE = 'Michael Li | Portfolio';
 export const SITE_DESCRIPTION = 'Personal portfolio of Michael Li — Quantitative Methods (QMSS) at Columbia University. Data-driven analysis, economics, and machine learning.';
-export const GENERATE_SLUG_FROM_TITLE = true
+export const GENERATE_SLUG_FROM_TITLE = false
 export const TRANSITION_API = true
