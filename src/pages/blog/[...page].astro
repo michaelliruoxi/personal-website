@@ -14,8 +14,17 @@ const { page } = Astro.props;
 ---
 
 <BaseLayout title="Blog" sideBarActiveItemID="blog">
-  <div class="mb-5">
+  <div class="mb-8 space-y-3">
     <div class="text-3xl w-full font-bold">Blog</div>
+    <p class="text-lg text-base-content/80 max-w-3xl">
+      Here are my blogs — a place to collect longer thoughts, notes, and series as I keep building and learning.
+    </p>
+    <div class="bg-base-200 rounded-xl p-4 border border-base-300/60">
+      <p class="font-semibold mb-1">How this is organized</p>
+      <p class="text-base-content/80">
+        This page shows top-level blog entries. Series pages can contain their own linked sub-entries inside.
+      </p>
+    </div>
   </div>
 
   {
@@ -32,7 +41,7 @@ const { page } = Astro.props;
               title={post.data.title}
               img={post.data.heroImage}
               desc={post.data.description}
-              url={"/blog/" + createSlug(post.data.title, post.slug)}
+              url={"/blog/" + createSlug(post.data.title, post.slug, post.data.slug)}
               target="_self"
               badge={post.data.badge}
               tags={post.data.tags}

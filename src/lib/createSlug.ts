@@ -2,7 +2,18 @@
 
 import { GENERATE_SLUG_FROM_TITLE } from '../config'
 
-export default function (title: string, staticSlug: string) {
+export default function (title: string, staticSlug: string, customSlug?: string) {
+  const explicitSlug = customSlug || (staticSlug.includes('/') ? staticSlug : undefined)
+
+  if (explicitSlug) {
+    return explicitSlug
+      .trim()
+      .toLowerCase()
+      .replace(/\s+/g, '-')
+      .replace(/[^\w/-]/g, '')
+      .replace(/^-+|-+$/g, '')
+  }
+
   return (
     !GENERATE_SLUG_FROM_TITLE ? staticSlug : title
       // remove leading & trailing whitespace
