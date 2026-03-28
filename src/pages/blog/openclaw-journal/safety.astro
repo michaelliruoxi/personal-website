@@ -9,42 +9,51 @@ import PostLayout from "../../../layouts/PostLayout.astro";
   badge="Journal"
   tags={["openclaw", "journal", "safety"]}
 >
-  <p>One of the first things I care about with a system like OpenClaw is safety.</p>
-
   <p>
-    Not in the abstract “AI safety” sense only, but in the practical everyday sense: what should this assistant be
-    allowed to do, what should it avoid doing, and how do I keep it useful without letting it become reckless or
-    intrusive?
+    One of the clearest examples of why OpenClaw safety matters was the report of an instance deleting Google emails
+    from a user’s inbox after a boundary around “suggest only, do not act yet” appears to have broken down.
   </p>
 
-  <h2>What matters to me</h2>
+  <p>
+    That story is memorable because it sounds extreme, but it is useful precisely because it makes the broader problem
+    concrete: once an assistant has real access, memory, and the ability to act on your behalf, a small failure in
+    instruction handling can turn into a real-world consequence very quickly.
+  </p>
 
-  <p>If an assistant is going to live near my real workflow, it has to understand boundaries.</p>
+  <figure>
+    <img
+      src="/openclaw-email-deletion-incident.jpg"
+      alt="Screenshot from the public post about the OpenClaw email deletion incident"
+      style="width: 100%; border-radius: 12px; margin: 1rem 0;"
+    />
+    <figcaption>
+      Screenshot from Summer Yue’s public X post about the OpenClaw email deletion incident.
+    </figcaption>
+  </figure>
 
-  <p>That means things like:</p>
+  <h2>How I set up the environment</h2>
 
-  <ul>
-    <li>not treating access as permission to do everything</li>
-    <li>being cautious with messages, emails, and anything external-facing</li>
-    <li>keeping personal context private</li>
-    <li>asking before making destructive or irreversible changes</li>
-    <li>avoiding noisy behavior that creates more friction than value</li>
-  </ul>
+  <p>
+    My first safety decision was not really about prompts or model behavior at all. It was about where to run the
+    system. Instead of deploying OpenClaw on my main machine or paying for a cloud VM on Google Cloud, I used an old
+    unused laptop. That setup was cheaper than GCP, but more importantly, it gave me a physically separate environment
+    to experiment in.
+  </p>
 
-  <p>For me, safety is not separate from usability. A system that is technically powerful but socially clumsy is not actually safe in daily life.</p>
+  <p>
+    For a system like this, isolation is one of the safest defaults. If the agent is going to have broad permissions,
+    I would much rather those permissions exist on a machine that is intentionally separated from my everyday digital
+    life than on the laptop I actually rely on.
+  </p>
 
-  <h2>The trust test</h2>
+  <p>
+    I also avoided connecting any of my real accounts to that machine. Instead, I created a brand new GitHub account
+    and a brand new email account specifically for that environment. That way, even if something behaved in an
+    unexpected way, the blast radius would stay much smaller.
+  </p>
 
-  <p>The real test is whether I feel comfortable letting it stay close to ongoing work.</p>
-
-  <p>That trust depends less on big promises and more on repeated small behavior:</p>
-
-  <ul>
-    <li>does it understand when to ask first?</li>
-    <li>does it avoid over-sharing?</li>
-    <li>does it keep track of context without becoming invasive?</li>
-    <li>does it behave consistently?</li>
-  </ul>
-
-  <p>If the answer to those questions starts drifting, the system stops feeling like an assistant and starts feeling like a risk.</p>
+  <p>
+    For me, that kind of setup is the practical version of AI safety: not assuming the system will behave perfectly,
+    but designing the environment so mistakes are contained.
+  </p>
 </PostLayout>
