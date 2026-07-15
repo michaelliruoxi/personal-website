@@ -7,10 +7,10 @@ const iconSvg = icon && explorationIcons[icon] ? explorationIcons[icon] : null;
 ---
 
 <div
-  class="rounded-lg bg-base-100 hover:shadow-xl transition ease-in-out hover:scale-[102%]"
+  class="w-full min-w-0 overflow-hidden rounded-lg bg-base-100 hover:shadow-xl transition ease-in-out hover:scale-[102%]"
 >
-  <a href={url} target={target}>
-    <div class="hero-content flex-col md:flex-row">
+  <a href={url} target={target} class="block w-full min-w-0">
+    <div class="hero-content w-full min-w-0 flex-col md:flex-row">
       {
         iconSvg && (
           <div class="flex items-center justify-center w-16 h-16 md:w-20 md:h-20 shrink-0 rounded-lg border border-base-300 text-base-content [&_svg]:w-7 [&_svg]:h-7 [&_svg]:opacity-80" aria-hidden="true">
@@ -26,16 +26,16 @@ const iconSvg = icon && explorationIcons[icon] ? explorationIcons[icon] : null;
             height={422}
             format="webp"
             alt={title}
-            class="max-w-full md:max-w-[13rem] rounded-lg"
+            class="w-full max-w-full rounded-lg object-cover md:w-[13rem] md:max-w-[13rem]"
           />
         )
       }
-      <div class="grow w-full">
-        <h1 class="text-xl font-bold">
+      <div class="min-w-0 grow w-full">
+        <h1 class="text-xl font-bold break-words">
           {title}
           {badge && <div class="badge badge-secondary mx-2">{badge}</div>}
         </h1>
-        <p class="py-1 text-1xl">{desc}</p>
+        <p class="py-1 text-1xl break-words">{desc}</p>
         <div class="card-actions justify-end">
           {
             tags &&

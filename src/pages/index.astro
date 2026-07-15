@@ -10,23 +10,22 @@ const latestPost = blogPosts[0];
 ---
 
 <BaseLayout sideBarActiveItemID="home">
-  <div class="pb-12 mt-5">
+  <div class="pb-8 mt-5">
     <div class="text-xl py-1">Hey there 👋</div>
     <div class="text-5xl font-bold">I'm Michael Li</div>
-    <div class="text-3xl py-3 font-bold">Student @ Columbia University</div>
-    <div class="py-2">
-      <text class="text-lg">
-        I am a quantitative graduate student at Columbia University pursuing an M.A. in Quantitative Methods in the Social Sciences, with a strong foundation in economics, and computer science from Boston University. I focus on applying data-driven analysis to understand market trends and investment opportunities.
-        
-        I thrive at the intersection of data and decision-making, with experience in investment banking and fixed income research through internships at CICC and Haitong Securities. My work has included IPO valuation, financial due diligence, and bond risk assessment using Bloomberg, Wind, and Capital IQ.
-        
-        With strong training in machine learning and econometrics, I bring a quantitative mindset to financial analysis. Currently seeking 2026 internship opportunities in financial analytics.
-      </text>
+    <div class="text-2xl md:text-3xl py-3 font-bold">Student @ Columbia University</div>
+    <div class="max-w-4xl space-y-3 py-2 text-base text-base-content/90 md:text-lg">
+      <p>
+        I am a Columbia QMSS graduate student with a background in economics and computer science. I focus on venture capital, growth equity, and private equity, using quantitative analysis to evaluate markets, business models, and growth opportunities.
+      </p>
+      <p>
+        At 3Q Investment Partners, I support three live PE transactions through LBO analysis, valuation, diligence, and AI-enabled investment materials. At Ionian Pine Partners, I combined fieldwork with AI-assisted research on a 150-building NYC portfolio. Earlier roles at CICC and Haitong Securities covered TMT IPO valuation, financial diligence, and fixed-income research. I build AI workflows for investment research, diligence, and data collection. I am looking for full-time opportunities in venture capital, growth equity, and private equity.
+      </p>
     </div>
 
     <!--
     <div class="mt-8">
-      <a class="btn" href="www.linkedin.com/in/michael-li-03abc" target="_blank"> Let's connect!</a>
+      <a class="btn" href="https://www.linkedin.com/in/michaelliruoxi/" target="_blank"> Let's connect!</a>
       <a href="https://github.com/michaelliruoxi" target="_blank" class="btn btn-outline ml-5">
         GitHub
       </a>
@@ -38,6 +37,14 @@ const latestPost = blogPosts[0];
     <div class="text-3xl w-full font-bold mb-2">My last projects {"</>"}</div>
   </div>
 
+  <HorizontalCard
+    title="LLM Evaluation Pipeline for Robust QA"
+    img="/llm_evaluation_pipeline.png"
+    desc="Designed an end-to-end LLM evaluation pipeline for noisy QA inputs: prompt repair, multi-model benchmarking, automated metrics, and error analysis to quantify robustness and deployment risk."
+    url="https://github.com/michaelliruoxi/medical_llm_project"
+    badge="LLM Evaluation"
+  />
+  <div class="divider my-0"></div>
   <HorizontalCard
     title="COVID-19 Chest X-Ray Classification with Deep Learning"
     img="/chest_xray.jpg"
