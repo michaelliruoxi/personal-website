@@ -12,69 +12,54 @@ const latestPost = blogPosts[0];
 <BaseLayout sideBarActiveItemID="home">
   <div class="pb-8 mt-5">
     <div class="text-xl py-1">Hey there 👋</div>
-    <div class="text-5xl font-bold">I'm Michael Li</div>
-    <div class="text-2xl md:text-3xl py-3 font-bold">Student @ Columbia University</div>
+    <h1 class="text-5xl font-bold">I'm Michael Li</h1>
+    <div class="text-2xl md:text-3xl py-3 font-bold">Financial Planning &amp; Analysis</div>
+    <div class="text-base text-base-content/70 mb-3">Columbia University · M.A. in Quantitative Methods in the Social Sciences</div>
     <div class="max-w-4xl space-y-3 py-2 text-base text-base-content/90 md:text-lg">
       <p>
-        I am a Columbia QMSS graduate student with a background in economics and computer science. I focus on venture capital, growth equity, and private equity, using quantitative analysis to evaluate markets, business models, and growth opportunities.
+        I am a Columbia QMSS graduate student with a background in economics and computer science from Boston University. My focus is FP&amp;A: using financial modeling and data analysis to support business planning and better decisions. I am interested in budgeting, forecasting, and variance analysis to understand what drives business performance.
       </p>
       <p>
-        At 3Q Investment Partners, I support three live PE transactions through LBO analysis, valuation, diligence, and AI-enabled investment materials. At Ionian Pine Partners, I combined fieldwork with AI-assisted research on a 150-building NYC portfolio. Earlier roles at CICC and Haitong Securities covered TMT IPO valuation, financial diligence, and fixed-income research. I build AI workflows for investment research, diligence, and data collection. I am looking for full-time opportunities in venture capital, growth equity, and private equity.
+        My experience includes LBO analysis, valuation, and due diligence at 3Q Investment Partners; real estate research at Ionian Pine Partners; and IPO valuation, financial diligence, and fixed-income research at CICC and Haitong Securities. I bring skills in Excel, Python, and SQL alongside training in econometrics to analyze data, assess assumptions, and communicate findings clearly.
       </p>
+      <p class="font-medium">I am looking for full-time opportunities in FP&amp;A and corporate finance.</p>
     </div>
 
-    <!--
-    <div class="mt-8">
-      <a class="btn" href="https://www.linkedin.com/in/michaelliruoxi/" target="_blank"> Let's connect!</a>
-      <a href="https://github.com/michaelliruoxi" target="_blank" class="btn btn-outline ml-5">
-        GitHub
-      </a>
+    <div class="mt-5">
+      <a class="btn btn-outline" href="/contact">Let's connect</a>
     </div>
-    -->
   </div>
 
   <div>
-    <div class="text-3xl w-full font-bold mb-2">My last projects {"</>"}</div>
+    <h2 class="text-3xl w-full font-bold mb-2">Selected analytical projects</h2>
+    <p class="text-base-content/80 mb-4">Projects in time-series forecasting and customer analysis that complement my finance experience.</p>
   </div>
 
-  <HorizontalCard
-    title="LLM Evaluation Pipeline for Robust QA"
-    img="/llm_evaluation_pipeline.png"
-    desc="Designed an end-to-end LLM evaluation pipeline for noisy QA inputs: prompt repair, multi-model benchmarking, automated metrics, and error analysis to quantify robustness and deployment risk."
-    url="https://github.com/michaelliruoxi/medical_llm_project"
-    badge="LLM Evaluation"
-  />
-  <div class="divider my-0"></div>
-  <HorizontalCard
-    title="COVID-19 Chest X-Ray Classification with Deep Learning"
-    img="/chest_xray.jpg"
-    desc="Built and compared six CNN architectures (custom and transfer learning) to classify chest X-rays as COVID-19, Normal, or Viral Pneumonia — achieving 95.7% accuracy and 0.99 AUC."
-    url="https://github.com/michaelliruoxi/medical_deeplearning"
-    badge="Deep Learning"
-  />
-  <div class="divider my-0"></div>
-  <HorizontalCard
-    title="Natural Language Processing for Student Rating Prediction"
-    img="/nlp_cover.png"
-    desc="How do students really think about their professors? I used NLP on 20k+ RateMyProfessor reviews to predict star ratings from the text — and got accuracy up to ~69%."
-    url="https://github.com/michaelliruoxi/prof_rating_nlp"
-    badge="NLP"
-  />
-  <div class="divider my-0"></div>
   <HorizontalCard
     title="Wave Height Prediction — Surf Vacation Planner"
     img="/remagic_cover.jpeg"
     desc="A time-series forecasting app that predicts ocean wave heights using Facebook Prophet and NOAA buoy data, helping surfers find optimal locations and dates for their next trip."
     url="/cs506-wave-prediction"
     target="_self"
-    badge="Time Series"
+    badge="Forecasting"
   />
+  <div class="divider my-0"></div>
+  <HorizontalCard
+    title="Predicting Customer Churn Using KNN"
+    icon="churn"
+    desc="A Kaggle project using K-nearest neighbors to predict customer churn, exploring a business question relevant to customer retention and revenue planning."
+    url="https://github.com/michaelliruoxi/mlrx-assignment-5"
+    badge="Customer Analytics"
+  />
+  <div class="mt-4">
+    <a class="link link-hover font-medium" href="/projects">View all projects →</a>
+  </div>
 
   {
     latestPost && (
       <>
         <div class="mt-14 mb-3">
-          <div class="text-3xl w-full font-bold mb-2">Blog / Journal</div>
+          <h2 class="text-3xl w-full font-bold mb-2">Blog / Journal</h2>
           <p class="text-base-content/80 max-w-3xl">
             Here are my most recent blogs.
           </p>
