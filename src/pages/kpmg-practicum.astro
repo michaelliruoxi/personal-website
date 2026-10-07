@@ -1,0 +1,70 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="KPMG Practicum: SEC Financial Data Infrastructure | Michael Li"
+  description="An ongoing Columbia QMSS practicum building SEC filing data infrastructure, with Michael Li responsible for database and integration work."
+  sideBarActiveItemID="projects"
+>
+  <a href="/projects" class="link link-hover text-sm">Back to Projects</a>
+
+  <article class="max-w-3xl mt-6">
+    <header class="mb-8">
+      <p class="text-sm text-base-content/70 mb-2">Columbia QMSS / KPMG practicum · In progress</p>
+      <h1 class="text-3xl md:text-4xl font-bold mb-4">SEC Financial Data Infrastructure</h1>
+      <p class="text-lg leading-relaxed mb-5">
+        Building a traceable data foundation for public SEC 10-K and 10-Q filings,
+        intended to support downstream retrieval-augmented generation (RAG) and GraphRAG research.
+      </p>
+      <a
+        href="https://github.com/michaelliruoxi/data_engineering_kpmg"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn btn-outline btn-sm"
+      >View on GitHub</a>
+    </header>
+
+    <section aria-labelledby="role-heading" class="border-t border-base-300 pt-6 mb-8">
+      <h2 id="role-heading" class="text-2xl font-bold mb-3">My role</h2>
+      <p class="leading-relaxed">
+        I own database and integration work within a seven-person engineering team.
+        My responsibilities include schema evolution, shared data imports, and coordinating
+        interfaces between the team's processing modules.
+      </p>
+    </section>
+
+    <section aria-labelledby="foundation-heading" class="border-t border-base-300 pt-6 mb-8">
+      <h2 id="foundation-heading" class="text-2xl font-bold mb-3">Foundation in place</h2>
+      <p class="leading-relaxed">
+        The public repository includes a PostgreSQL schema, versioned storage helpers,
+        source metadata and citation views, and a metadata CLI. The shared database
+        foundation is deployed on AWS RDS.
+      </p>
+    </section>
+
+    <section aria-labelledby="sample-heading" class="border-t border-base-300 pt-6 mb-8">
+      <h2 id="sample-heading" class="text-2xl font-bold mb-3">Current sample and next steps</h2>
+      <p class="leading-relaxed mb-3">
+        A partial, manually prepared Microsoft 10-Q sample contains 24 financial facts,
+        3 statement excerpts, 24 table-to-fact links, and 1 report excerpt with 2 sections
+        and 6 text chunks. It gives the team concrete records to query and trace to public sources.
+      </p>
+      <p class="leading-relaxed mb-4">
+        Full-filing processing, interface agreement, and teammate network onboarding remain
+        in progress. The sample is not a completed automated pipeline or RAG product.
+      </p>
+      <a
+        href="https://github.com/michaelliruoxi/data_engineering_kpmg/blob/main/docs/manual-example.md"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="link link-hover"
+      >Read the manual example</a>
+    </section>
+
+    <section aria-labelledby="tools-heading" class="border-t border-base-300 pt-6">
+      <h2 id="tools-heading" class="text-2xl font-bold mb-3">Tools</h2>
+      <p class="text-base-content/80 leading-relaxed">Python · SQL · PostgreSQL · AWS RDS · SEC EDGAR / XBRL</p>
+    </section>
+  </article>
+</BaseLayout>
