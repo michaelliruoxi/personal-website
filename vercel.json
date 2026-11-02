@@ -1,0 +1,26 @@
+{
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "liruoxi.me"
+        }
+      ],
+      "destination": "https://www.michaelliruoxi.com/:path*",
+      "statusCode": 308
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.liruoxi.me"
+        }
+      ],
+      "destination": "https://www.michaelliruoxi.com/:path*",
+      "statusCode": 308
+    }
+  ]
+}
