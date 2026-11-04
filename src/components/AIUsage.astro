@@ -1,0 +1,55 @@
+---
+import fs from "node:fs";
+import path from "node:path";
+
+const publicDir = path.join(process.cwd(), "public");
+const jsonPath = path.join(publicDir, "ai-usage.json");
+const imagePath = path.join(publicDir, "ai-usage.png");
+
+if (!fs.existsSync(jsonPath) || !fs.existsSync(imagePath)) {
+  throw new Error("AI usage requires public/ai-usage.json and public/ai-usage.png.");
+}
+
+const usage = JSON.parse(fs.readFileSync(jsonPath, "utf-8")) as { updated?: unknown };
+const png = fs.readFileSync(imagePath);
+const isPng =
+  png.length > 8 &&
+  png[0] === 0x89 &&
+  png[1] === 0x50 &&
+  png[2] === 0x4e &&
+  png[3] === 0x47;
+
+if (!isPng) {
+  throw new Error("public/ai-usage.png must be a PNG.");
+}
+
+if (typeof usage.updated !== "string" || !/^\d{4}-\d{2}-\d{2}$/.test(usage.updated)) {
+  throw new Error('public/ai-usage.json must be {"updated":"YYYY-MM-DD"}.');
+}
+
+const [year, month, day] = usage.updated.split("-").map(Number);
+const monthName = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"][month - 1];
+
+if (!monthName || day < 1 || day > 31) {
+  throw new Error("public/ai-usage.json updated date is invalid.");
+}
+
+const updatedLabel = `${monthName} ${day}, ${year}`;
+const profileUrl = "https://chatgpt.com/u/sharkml";
+---
+
+<section class="mt-14" aria-labelledby="ai-usage-heading">
+  <h2 id="ai-usage-heading" class="text-3xl w-full font-bold mb-2">AI Usage</h2>
+  <p class="text-base-content/80 mb-4">Codex has this token counter, so here's mine. Just something cool to show 😄</p>
+  <img
+    src="/ai-usage.png"
+    alt="ChatGPT token summary and daily activity for @sharkml"
+    class="w-full rounded-xl border border-base-300 bg-base-100"
+    width={png.readUInt32BE(16)}
+    height={png.readUInt32BE(20)}
+  />
+  <p class="text-sm text-base-content/60 mt-3">Last updated: {updatedLabel}</p>
+  <p class="mt-2">
+    <a href={profileUrl} class="link link-hover" target="_blank" rel="noopener noreferrer">{profileUrl}</a>
+  </p>
+</section>
